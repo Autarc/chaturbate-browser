@@ -91,7 +91,7 @@ const CHROME_FLAGS = [
  * Parses Chaturbate websocket message arguments into native
  * javascript objects.
  *
- * @param {string} arg 
+ * @param {string} arg
  * @return {*}
  * @private
  */
@@ -182,7 +182,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Executes a callback and waited for the page to load.
    *
-   * @param {Function} cb 
+   * @param {Function} cb
    * @return {*}
    */
   async wait(cb) {
@@ -198,7 +198,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Navigates to a URL.
    *
-   * @param {string} url 
+   * @param {string} url
    * @return {*}
    */
   goto(url) {
@@ -211,7 +211,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Gets a list of cookies.
-   * 
+   *
    * @return {Array<Object>}
    */
   async cookies() {
@@ -221,7 +221,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Checks the current login session.
-   * 
+   *
    * @return {boolean}
    */
   async session() {
@@ -237,8 +237,8 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Performs a login as a user.
    *
-   * @param {string} username 
-   * @param {string} password 
+   * @param {string} username
+   * @param {string} password
    * @return {boolean}
    */
   async login(username, password) {
@@ -268,7 +268,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Requests a token purchase with Bitcoin.
    *
-   * @param {*} amount 
+   * @param {*} amount
    * @return {Object}
    */
   async purchase(amount) {
@@ -291,7 +291,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Navigates the browser to a user's profile.
-   * 
+   *
    * @param {string} username
    */
   async profile(username) {
@@ -308,7 +308,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Stops the remote dubugger and kills the Chrome process.
-   * 
+   *
    * @param {Error=} e
    */
   stop(e) {
@@ -332,7 +332,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Creates a promise for the next page load.
-   * 
+   *
    * @return {Promise}
    * @private
    */
@@ -344,7 +344,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Called when the browser successfully loads a page.
-   * 
+   *
    * @private
    */
   _onPageLoad() {
@@ -355,7 +355,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Called when a console message is intercepted.
-   * 
+   *
    * @param {Object} params
    * @private
    */
@@ -379,7 +379,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Called when a message is received.
    *
-   * @param {Object} message 
+   * @param {Object} message
    * @private
    */
   _onProfileMessage(message) {
@@ -411,7 +411,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Called when the profile patch is initialized.
    *
-   * @param {Object} payload 
+   * @param {Object} payload
    * @private
    */
   _onProfileInit(payload) {
@@ -435,7 +435,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Called when the profile websocket is hooked.
    *
-   * @param {Object} payload 
+   * @param {Object} payload
    * @private
    */
   _onProfileWebsocketHooked(payload) {
@@ -458,7 +458,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Called when the profile websocket is opened.
-   * 
+   *
    * @private
    */
   _onProfileWebsocketOpen() {
@@ -468,7 +468,7 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Called when the profile websocket receives a message.
    *
-   * @param {Object} payload 
+   * @param {Object} payload
    * @private
    */
   _onProfileWebsocketMessage(payload) {
@@ -481,14 +481,14 @@ class ChaturbateBrowser extends EventEmitter {
       args: data.args.map((arg) => _parseArg(arg)),
       callback: data.callback,
       method: data.method,
-      timestamp: payload.timestamp,
+      timestamp: payload.timeStamp,
     });
   }
 
   /**
    * Called when the profile websocket receives an error.
    *
-   * @param {Error} err 
+   * @param {Error} err
    * @private
    */
   _onProfileWebsocketError(err) {
@@ -497,7 +497,7 @@ class ChaturbateBrowser extends EventEmitter {
 
   /**
    * Called when the profile websocket is closed.
-   * 
+   *
    * @param {Event} event
    * @private
    */
@@ -508,9 +508,9 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Evaluates a script within the browser.
    *
-   * @param {string} script 
-   * @param {boolean} awaitPromise 
-   * @param {boolean} returnByValue 
+   * @param {string} script
+   * @param {boolean} awaitPromise
+   * @param {boolean} returnByValue
    * @return {*}
    */
   async evaluate(script, awaitPromise = false, returnByValue = true) {
@@ -538,8 +538,8 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Evaluates a prebuilt script within the browser.
    *
-   * @param {string} name 
-   * @param {Object} params 
+   * @param {string} name
+   * @param {Object} params
    * @return {*}
    * @private
    */
@@ -561,8 +561,8 @@ class ChaturbateBrowser extends EventEmitter {
   /**
    * Performs an HTTP fetch within the browser.
    *
-   * @param {string} url 
-   * @param {Object} params 
+   * @param {string} url
+   * @param {Object} params
    * @param {?Object} options
    * @return {*}
    */
