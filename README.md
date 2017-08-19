@@ -86,7 +86,7 @@ setTimeout(() => cb.stop(), 10 * 1000);
     await cb.evaluate('document.querySelector(\'form\').submit()')
   });
   ```
-  
+
   ### **goto**
   Navigate to a specific page.
 
@@ -151,7 +151,7 @@ setTimeout(() => cb.stop(), 10 * 1000);
   });
   ```
 
-  ### **profile**
+  ### **purchase**
   Called after a purchase has been setup.
 
   ```javascript
@@ -165,7 +165,7 @@ setTimeout(() => cb.stop(), 10 * 1000);
 
   ```javascript
   cb.on('init', (e) => {
-    const status = e.hasWebsockets ? 'online' : 'offline';
+    const status = e.hasWebsocket ? 'online' : 'offline';
     console.log(`welcome to ${e.settings.room}'s room`);
     console.log(`the broadcaster is ${status}`)
   });
@@ -177,6 +177,8 @@ setTimeout(() => cb.stop(), 10 * 1000);
   * **initializerSettings** (Object)
   * **csrftoken** (string)
   * **hasWebsocket** (boolean)
+  * **hasPlayer** (boolean)
+  * **room** (string)
 
   ### **open**
   Called when the websocket is being opened.
